@@ -1,0 +1,40 @@
+.displayf {
+    display: flex; 
+}
+
+.mt1 {
+    margin-top: 1rem;
+}
+
+.form__wrapper {
+    width: 100vw;
+    height: 100vh;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.form__container {
+    flex-flow: column wrap;
+}
+
+.form__element--leftAlign {
+    align-self: flex-start;
+}
+
+.form__container--phone {
+    border: 1px solid #272121;
+    height: 5vh;
+    font-size: 3rem;
+    padding: 1rem;
+}
+
+.form__container--submit {
+    padding: 1rem;
+    margin-left: 1rem;
+}

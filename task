@@ -1,0 +1,31 @@
+====================================================
+
+Developer Assessment
+
+As part of the application process, we ask all applicants to complete a short code sample exercise, designed to reflect a realistic scenario of the our daily work. There is no time restriction, but it should not take more than 1 hour. You are welcome to use any available resources.
+
+When finished, please check the code into a suitable, publicly accessible repository (eg. Github) and send us the URL. There is no need to host it.
+
+You are welcome to use any language, framework or library you wish, but we work exclusively in Node JS and React JS. For sending the SMS, Twilio offer $5 free credit and a variety of libraries for easy integration.
+
+
+Backend Scenario
+------------------------
+BDSwiss has decided to give a bonus coupon that can be redeemed for free deposit. However, to stop abuse we want to provide the bonus code only in exchange for an telephone number, sending the code in an SMS message.
+
+Your task is to create a REST API endpoint that receives a phone number and sends an SMS.
+
+The endpoint should be available at ‘/api/sms-promotion’. The request body will consist of a single field, “phone”. You should then send an SMS to the provided phone number, with one of two messages:
+
+If the current server time is in the morning, the message should read “Good morning! Your promocode is AM123”. 
+If the current server time is in the afternoon or later, the message should read “Hello! Your promocode is PM456”.
+
+The API should return a suitable HTTP response (you can get creative here), including handling errors appropriately.
+
+
+Frontend Scenario
+-------------------------
+Your task is to create a simple form for sending the above SMS code, collecting the phone number and passing it to the endpoint. 
+However, our legal team has insisted that before the form is submitted, we have two checkboxes which must be checked. - “I am over 18” and “I accept the terms and conditions”. There is no need for any styling.
+
+====================================================
