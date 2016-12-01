@@ -2,7 +2,7 @@
 const express       = require('express');
 const router        = express.Router();
 const phone         =   require('phone');
-var config          = require('../config');
+const config          = require('../config');
 const twilio        = require('twilio')
 const client        = new twilio.RestClient(config.accountSid, config.authToken);
 
