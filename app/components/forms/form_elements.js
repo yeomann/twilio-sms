@@ -1,5 +1,4 @@
 import React from 'react';
-import styles from './form.css';
 
 export default class formEl extends React.Component {
 

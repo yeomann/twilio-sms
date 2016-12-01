@@ -1,0 +1,41 @@
+.form__element_leftAlign {
+    align-self: flex-start;
+}
+
+.form__container_phone {
+    border: 1px solid #272121;
+    height: 5vh;
+    font-size: 3rem;
+    padding: 1rem;
+}
+
+.form__container_submit {
+    padding: 1rem;
+    margin-left: 1rem;
+}
+
+.form__element--leftAlign {
+    align-self: flex-start;
+}
+
+.form__container--phone {
+    border: 1px solid #272121;
+    height: 5vh;
+    font-size: 3rem;
+    padding: 1rem;
+}
+
+.form__container--submit {
+    padding: 1rem;
+    margin-left: 1rem;
+}
+
+.impnote {
+    font-size: 0.8rem;
+    display: block;
+    text-align: left
+}
+
+.impnote:nth-of-type(1) {
+    margin: 3rem 0 0 0;
+}
