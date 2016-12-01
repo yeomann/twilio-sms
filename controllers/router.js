@@ -2,9 +2,11 @@
 const express = require('express');
 const router = express.Router();
 const phone       =   require('phone');
-var config = require('../config');
-var client = require('twilio')(config.accountSid, config.authToken);
-
+// var config = require('../config');
+// var client = require('twilio')(config.accountSid, config.authToken);
+// var twilio = require('twilio')
+// var client = new twilio.RestClient(config.accountSid, config.authToken);
+const twilioClient = require('../twilioClient');
 router.post('/api/sms-promotion', function(req, res) {
     let phoneNumber_array = phone(req.body.phone);
     let phoneNumber = phoneNumber_array[0];
@@ -15,17 +17,10 @@ router.post('/api/sms-promotion', function(req, res) {
     } else {
         TimeStatus = "Hello! Your promocode is PM456";
     }
-    client.messages.create({ 
-        to      :   phoneNumber,
-        from    :   config.sendingNumber, 
-        body    :   TimeStatus, 
-    }, function(err, message) {
-         if (!err) {
-            res.send("Message was send successfully.");
-        } else {
-            res.send("There was erorr sending a sms. Please try again later.");
-        }
-    });
+
+    let response = twilioClient.sendSms(phoneNumber, TimeStatus);
+    res.send(response);
+
 });
 
 module.exports = router;
