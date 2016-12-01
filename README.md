@@ -6,14 +6,14 @@ or just export the files:
 `svn export https://github.com/yeomann/twilio-sms/trunk ./dir`
 
 1. cd twilio-sms
-2. npm install
-3. npm start
+2. `npm install`
+3. `npm start`
 4. navigate to http://localhost:3000 in your browser of choice.
 
 
 ## Build
-1. npm run build
-2. npm run runbuild
+1. `npm run build`
+2. `npm run runbuild`
 
 after building, you can run from terminal using `PORT=1234 NODE_ENV=production node server.js` instead `npm run build`.
 
@@ -23,7 +23,9 @@ NOTE: upon running `npm run build`, if no build folder was created then please m
 
 ## FAQ
 Incase of port error or error like below,
-`events.js:160
+
+```
+events.js:160
       throw er; // Unhandled 'error' event
       ^
 
@@ -31,7 +33,8 @@ Error: listen EADDRINUSE 0.0.0.0:3000
     at Object.exports._errnoException (util.js:1007:11)
     at exports._exceptionWithHostPort (util.js:1030:20)
     at Server._listen2 (net.js:1253:14)
-    at listen (net.js:1289:10)`
+    at listen (net.js:1289:10)
+```
 
 Plese make sure that your PORT 3000 is free,
 Incase of linux you can make it free using
