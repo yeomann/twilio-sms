@@ -1,7 +1,10 @@
 // lets map routes to controller
-const express = require('express');
-const router = express.Router();
-const phone       =   require('phone');
+const express       = require('express');
+const router        = express.Router();
+const phone         =   require('phone');
+var config          = require('../config');
+const twilio        = require('twilio')
+const client        = new twilio.RestClient(config.accountSid, config.authToken);
 
 router.post('/api/sms-promotion', function(req, res) {
     let phoneNumber_array = phone(req.body.phone);
@@ -14,8 +17,17 @@ router.post('/api/sms-promotion', function(req, res) {
         TimeStatus = "Hello! Your promocode is PM456";
     }
 
-    let response = twilioClient.sendSms(phoneNumber, TimeStatus);
-    res.send(response);
+    let promise =  client.messages.create({ 
+        to      :   phoneNumber,
+        from    :   config.sendingNumber, 
+        body    :   TimeStatus, 
+    });
+
+    promise.then(function() {
+        res.send("Message was send successfully.");
+    }, function(erorr) {
+        res.send("There was erorr sending a sms. Please try again later.");
+    });
 
 });
 
