@@ -15,11 +15,13 @@ or just export the files:
 1. `npm run build`
 2. `npm run runbuild`
 
-after building, you can run from terminal using `PORT=1234 NODE_ENV=production node server.js` instead `npm run build`.
+after running first build command, there will be build folder generated for you. To run production, Please type command number two i.e  `npm run build` OR you can directly write this command in terminal window `PORT=1234 NODE_ENV=production node server.js`
 
-If you wanna change port for Procution, Then see in `packages.json` under "runbuild" key, specify PORT yourself or from terminal, you can write directly `PORT=1234 NODE_ENV=production node server.js`.
+###Change Port
 
-NOTE: upon running `npm run build`, if no build folder was created then please make sure that webpack is installed globally or install it by running `npm install -g webpack`. you might need `sudo` for that.
+In order to change port, Refer to `packages.json` under "runbuild" key, specify PORT yourself or from terminal, you can write directly `PORT=1234 NODE_ENV=production node server.js`.
+
+NOTE: Upon running `npm run build`, if no build folder was created then please make sure that webpack is installed globally or install it by running `npm install -g webpack`. you might need `sudo` for that.
 
 ## FAQ
 Incase of port error or error like below,
@@ -36,13 +38,17 @@ Error: listen EADDRINUSE 0.0.0.0:3000
     at listen (net.js:1289:10)
 ```
 
-Plese make sure that your PORT 3000 is free,
-Incase of linux you can make it free using
+Plese make sure that your PORT 3000 is free and no other program is using,
+Incase of linux you can make it free using following instructions.
+
 1. `lsof -i tcp:3000`
 see the results with node name like below
-`node    10960 yeoman   13u  IPv4  86767      0t0  TCP *:3000 (LISTEN)` //since the status is LISTENING, we need to kill that.
-2. `kill -9 10960` // the code 10960 is the process id, can be see on above statement, Will be different for you.
+`node    10960 yeoman   13u  IPv4  86767      0t0  TCP *:3000 (LISTEN)` //since the status is LISTENING, we need to kill the node process in order to reuse this port.
+
+2. `kill -9 10960` // the number 10960 is the process ID, can be seen on above statement, will be different for you.
+
 3. `npm run runbuild` //run again
+
 
 ### React by default
 The project runs with React by default and hot replacement of changes to the modules.
@@ -54,4 +60,3 @@ To turn off CSS Modules remove it from the `webpack.config.js` file.
 
 ### Babel and Linting
 Both Node server and frontend code runs with Babel. And all of it is linted.
-
