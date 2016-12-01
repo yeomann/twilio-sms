@@ -6,7 +6,6 @@ var config = require('../config');
 var client = require('twilio')(config.accountSid, config.authToken);
 
 router.post('/api/sms-promotion', function(req, res) {
-    //res.writeHead(200, {'Content-Type': 'text/plain'});
     let phoneNumber_array = phone(req.body.phone);
     let phoneNumber = phoneNumber_array[0];
     let TimeStatus = '';
